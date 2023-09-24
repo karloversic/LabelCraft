@@ -8,7 +8,7 @@ module.exports = {
     mode: 'production',
     entry: './src/index.js',
     output: {
-        path: path.resolve(__dirname, 'build'),
+        path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
     },
     module: {
@@ -40,8 +40,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             // injects bundle.js to our new index.html
             inject: true,
-            // copys the content of the existing index.html to the new /build index.html
-            template: path.resolve('./index.html'), // Path to your HTML template
+            // copys the content of the existing index.html to the new /dist index.html
+            template: path.resolve('./src/index.html'), // Path to your HTML template
             filename: 'index.html', // Output filename for the generated HTML
         }),
         // new BundleAnalyzerPlugin({
