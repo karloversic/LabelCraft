@@ -41,7 +41,8 @@ module.exports = {
             // injects bundle.js to our new index.html
             inject: true,
             // copys the content of the existing index.html to the new /build index.html
-            template: path.resolve('./index.html'),
+            template: path.resolve('./index.html'), // Path to your HTML template
+            filename: 'index.html', // Output filename for the generated HTML
         }),
         // new BundleAnalyzerPlugin({
         //     // Optional configuration options
