@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "webpack serve --mode=development --open",
-    "build": " SET NODE_ENV='production' & webpack --stats-children"
+    "build": " SET NODE_ENV='production' & webpack"
   },
   "devDependencies": {
     "@babel/core": "^7.22.20",
