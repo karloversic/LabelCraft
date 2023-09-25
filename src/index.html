@@ -8,7 +8,8 @@
     <!--    <link href="./output.css" rel="stylesheet">-->
 
     <title>LabelCraft</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏷️</text></svg>"></link>
+    <link rel="icon"
+          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏷️</text></svg>"></link>
 </head>
 <body class="bg-gray-800 text-white">
 <div class="container mx-auto p-4">
@@ -23,7 +24,7 @@
         <p class="block mb-3 text-sm font-medium text-gray-900">Select how would you like to supply the list:</p>
 
 
-        <div id="radioContainer" class="grid grid-cols-2 gap-3 mb-6 w-1/2">
+        <div id="radioContainer" class="grid grid-cols-2 gap-3 mb-6 lg:w-2/3">
             <div id="writeRadioDiv" class="radio-div flex items-center pl-4 border border-blue-600 rounded bg-gray-200">
                 <input checked id="writeRadio" type="radio" value="write" name="list-option"
                        class="w-4 h-4 text-blue-600 bg-gray-100">
@@ -40,9 +41,9 @@
         <div class="input-div">
             <div id='writeDiv' class="mb-3">
                 <label class="block mb-2 text-sm font-medium text-gray-900" for="writeList">Write names</label>
-                <input id="writeList" class="text-black w-full px-3 py-[0.32rem] border rounded-md"
-                       placeholder="TPM - Trichocereus peruvianus Monstrose"
-                       value="TPM - Trichocereus peruvianus Monstrose, TPQC - Trichocereus peruvianus quasi monstrose, ATG - Andre the Giant">
+                <textarea id="writeList" class="text-black w-full px-3 py-2 border rounded-md" style="height: 170px;"
+                          placeholder="TPM - Trichocereus peruvianus Monstrose">TPM - Trichocereus peruvianus Monstrose, TPQC - Trichocereus peruvianus quasi monstrose, ATG - Andre the Giant
+                </textarea>
             </div>
 
             <div id="uploadDiv" class="mb-3" hidden>
@@ -55,7 +56,7 @@
 
 
         <div class="flex space-x-3">
-            <button  type="button" id="generateLabels"
+            <button type="button" id="generateLabels"
                     class="text-white bg-blue-400 cursor-not-allowed rounded-lg mt-4 text-sm px-5 py-2.5 text-center">
                 Generate Labels
             </button>
