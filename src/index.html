@@ -23,16 +23,16 @@
         <p class="block mb-3 text-sm font-medium text-gray-900">Select how would you like to supply the list:</p>
 
 
-        <div class="grid grid-cols-2 gap-3 mb-6 w-1/2">
-            <div class="radio-div flex items-center pl-4 border border-blue-600 rounded bg-gray-200">
-                <input checked id="list-option-1" type="radio" value="write" name="list-option"
+        <div id="radioContainer" class="grid grid-cols-2 gap-3 mb-6 w-1/2">
+            <div id="writeRadioDiv" class="radio-div flex items-center pl-4 border border-blue-600 rounded bg-gray-200">
+                <input checked id="writeRadio" type="radio" value="write" name="list-option"
                        class="w-4 h-4 text-blue-600 bg-gray-100">
-                <label for="list-option-1" class="w-full py-4 ml-2 text-sm font-medium text-gray-900">Write list</label>
+                <label for="writeRadio" class="w-full py-4 ml-2 text-sm font-medium text-gray-900">Write list</label>
             </div>
-            <div class="radio-div flex items-center pl-4 border border-gray-300 rounded">
-                <input id="list-option-2" type="radio" value="upload" name="list-option"
+            <div id="uploadRadioDiv" class="radio-div flex items-center pl-4 border border-gray-300 rounded">
+                <input id="uploadRadio" type="radio" value="upload" name="list-option"
                        class="w-4 h-4 text-blue-600 bg-gray-200">
-                <label for="list-option-2" class="w-full py-4 ml-2 text-sm font-medium text-gray-900">Upload
+                <label for="uploadRadio" class="w-full py-4 ml-2 text-sm font-medium text-gray-900">Upload
                     list</label>
             </div>
         </div>
@@ -65,9 +65,9 @@
                 Download Labels
             </button>
         </div>
+        <div id="labelContainer" class="mt-4 space-x-2 flex"></div>
         <div id="pdfViewer" class="mt-4"></div> <!-- Container to display PDF -->
 
-        <div id="labelContainer" class="mt-4 space-x-2 flex"></div>
     </div>
 
 </div>
