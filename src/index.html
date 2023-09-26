@@ -9,7 +9,7 @@
 
     <title>LabelCraft</title>
     <link rel="icon"
-          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏷️</text></svg>"></link>
+          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏷️</text></svg>">
 </head>
 <body class="bg-gray-800 text-white">
 <div class="container mx-auto p-4">
@@ -35,6 +35,21 @@
                        class="w-4 h-4 text-blue-600 bg-gray-200">
                 <label for="uploadRadio" class="w-full py-4 ml-2 text-sm font-medium text-gray-900">Upload
                     list</label>
+            </div>
+        </div>
+
+        <p class="block mb-3 text-sm font-medium text-gray-900">Select name separator:</p>
+
+        <div id="separatorContainer" class="grid grid-cols-2 gap-3 mb-6 lg:w-2/3">
+            <div id="newlineRadioDiv" class="radio-div flex items-center pl-4 border border-blue-600 rounded bg-gray-200">
+                <input checked id="newlineRadio" type="radio" value="newline" name="separator-option"
+                       class="w-4 h-4 text-blue-600 bg-gray-100">
+                <label for="newlineRadio" class="w-full py-4 ml-2 text-sm font-medium text-gray-900">New line</label>
+            </div>
+            <div id="commaRadioDiv" class="radio-div flex items-center pl-4 border border-gray-300 rounded">
+                <input id="commaRadio" type="radio" value="comma" name="separator-option"
+                       class="w-4 h-4 text-blue-600 bg-gray-200">
+                <label for="commaRadio" class="w-full py-4 ml-2 text-sm font-medium text-gray-900">Comma (,)</label>
             </div>
         </div>
 
