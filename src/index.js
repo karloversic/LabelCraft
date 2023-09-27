@@ -134,15 +134,31 @@ function generateLabelsHTML(inputData) {
             if (parts.length > 0) {
                 const label = document.createElement('div');
                 label.className = 'label border p-4 rounded-lg text-center text-black';
-                label.innerHTML = `<span class="font-bold">${parts[0]}</span><br>${parts.slice(1).join('<br>')}`;
+                let maxWidthFactor = 6; // Initial max width factor
+                label.style.height = 'fit-content'; // Set height to fit content
+
+                // Loop to adjust maxWidth until DESCRIPTION fits within two rows
+                while (maxWidthFactor <= 10) { // Adjust the limit as needed
+                    label.style.maxWidth = `${maxWidthFactor * parts[0].length}ch`;
+                    label.innerHTML = `<span class="font-bold">${parts[0]}</span><br>${parts.slice(1).join('<br>')}`;
+
+                    // Check if the label exceeds two rows
+                    if (label.scrollHeight > 2 * label.clientHeight) {
+                        maxWidthFactor++; // Increase max width factor
+                    } else {
+                        break; // If it fits within two rows, exit the loop
+                    }
+                }
+
                 labelContainer.appendChild(label);
             }
         }
     });
 
     unhideDownloadButton();
-
 }
+
+
 
 
 function generatePDF() {
