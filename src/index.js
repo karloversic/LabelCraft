@@ -4,6 +4,7 @@ import html2pdf from 'html2pdf.js';
 // Separator for the list of names
 let separator = 'newline';
 
+
 // On page load
 document.addEventListener("DOMContentLoaded", () => {
     // "Generate Labels" BUTTON
@@ -78,13 +79,13 @@ function changeButtonState() {
     const button = document.getElementById('generateLabels');
 
     if (writeInput.value.trim() !== '' || fileInput.files.length !== 0) {
-        button.disabled = false
-        button.classList.remove('cursor-not-allowed', 'bg-blue-400')
-        button.classList.add('cursor-pointer', 'bg-blue-600')
+        button.classList.remove('cursor-not-allowed', 'bg-blue-400');
+        button.classList.add('cursor-pointer', 'bg-blue-600');
+        button.disabled = false;
     } else {
-        button.disabled = true
-        button.classList.remove('cursor-pointer', 'bg-blue-600')
-        button.classList.add('cursor-not-allowed', 'bg-blue-400')
+        button.classList.remove('cursor-pointer', 'bg-blue-600');
+        button.classList.add('cursor-not-allowed', 'bg-blue-400');
+        button.disabled = true;
     }
 }
 
@@ -92,7 +93,7 @@ function changeButtonState() {
 function unhideDownloadButton() {
     const downloadButton = document.getElementById('downloadLabels');
     downloadButton.classList.remove('hidden');
-    downloadButton.addEventListener('click', generatePDF)
+    downloadButton.addEventListener('click', generatePDF);
 }
 
 
@@ -155,17 +156,26 @@ function generatePDF() {
     let options = {
         margin: 0.1,
         filename: filename, // Use the dynamic filename
-        image: {type: 'jpeg', quality: 0.98},
-        html2canvas: {scale: 2},
-        jsPDF: {unit: 'in', format: 'a4', orientation: 'portrait'}
+        image: {
+            type: 'jpeg',
+            quality: 0.98
+        },
+        html2canvas: {
+            scale: 2
+        },
+        jsPDF: {
+            unit: 'in',
+            format: 'a4',
+            orientation: 'portrait'
+        }
     };
 
     // Generate the PDF and save it
     html2pdf().set(options).from(element).save()
-        .then(function (pdfData) {
+        .then(function(pdfData) {
             console.log('PDF generation successful:', pdfData);
         })
-        .catch(function (error) {
+        .catch(function(error) {
             console.error('PDF generation error:', error);
         });
 }
