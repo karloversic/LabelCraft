@@ -7,7 +7,7 @@ let separator = 'newline';
 // On page load
 document.addEventListener("DOMContentLoaded", () => {
     // "Generate Labels" BUTTON
-    document.getElementById('generateLabels').addEventListener('click', generateLabelsHTML);
+    document.getElementById('generateLabels').addEventListener('click', fetchData);
     // Radio CSS change
     document.getElementById('listRadioContainer').addEventListener('change', handleRadioChange);
     document.getElementById('separatorRadioContainer').addEventListener('change', handleRadioChange);
@@ -95,8 +95,40 @@ function unhideDownloadButton() {
     downloadButton.addEventListener('click', generatePDF)
 }
 
-function generateLabelsHTML() {
-    const nameList = document.getElementById('writeList').value.split(',');
+
+function fetchData() {
+    // Determine the source of data based on the selected radio button
+    const writeRadio = document.getElementById('writeRadio');
+    const uploadRadio = document.getElementById('uploadRadio');
+
+    let inputData = '';
+    if (writeRadio.checked) {
+        // Use data from the textarea
+        const textarea = document.getElementById('writeList');
+        inputData = textarea.value;
+        generateLabelsHTML(inputData);
+    } else if (uploadRadio.checked) {
+        // Use data from the file input (you may need to handle file input differently)
+        const fileInput = document.getElementById('uploadList');
+        // Assuming you want to read the file content once a file is selected
+
+        if (fileInput.files.length > 0) {
+            const selectedFile = fileInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+                inputData = event.target.result;
+                generateLabelsHTML(inputData);
+            };
+            reader.readAsText(selectedFile);
+
+        }
+    }
+}
+
+
+function generateLabelsHTML(inputData) {
+    const nameList = inputData.split(',');
     const labelContainer = document.getElementById('labelContainer');
     labelContainer.innerHTML = '';
 
