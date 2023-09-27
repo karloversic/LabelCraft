@@ -6,8 +6,9 @@ import html2pdf from 'html2pdf.js';
 document.addEventListener("DOMContentLoaded", () => {
     // "Generate Labels" BUTTON
     document.getElementById('generateLabels').addEventListener('click', generateLabelsHTML);
-    // Change radio CSS when input changes
-    document.getElementById('radioContainer').addEventListener('change', handleRadioChange);
+    // Radio CSS change
+    document.getElementById('listRadioContainer').addEventListener('change', handleRadioChange);
+    document.getElementById('separatorRadioContainer').addEventListener('change', handleRadioChange);
     // Change button state when input changes
     document.getElementById('writeList').addEventListener('input', changeButtonState);
     document.getElementById('uploadList').addEventListener('input', changeButtonState);
