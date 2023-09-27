@@ -128,15 +128,20 @@ function generateLabelsHTML(inputData) {
     labelContainer.innerHTML = '';
 
     nameList.forEach((name) => {
-        const parts = name.split('-').map(part => part.trim());
-        if (parts.length > 0) {
-            const label = document.createElement('div');
-            label.className = 'label border p-4 rounded-lg text-center text-black';
-            label.innerHTML = `<span class="font-bold">${parts[0]}</span><br>${parts.slice(1).join('<br>')}`;
-            labelContainer.appendChild(label);
+        const trimmedName = name.trim(); // Remove leading/trailing whitespace
+        if (trimmedName) {
+            const parts = trimmedName.split('-').map(part => part.trim());
+            if (parts.length > 0) {
+                const label = document.createElement('div');
+                label.className = 'label border p-4 rounded-lg text-center text-black';
+                label.innerHTML = `<span class="font-bold">${parts[0]}</span><br>${parts.slice(1).join('<br>')}`;
+                labelContainer.appendChild(label);
+            }
         }
     });
+
     unhideDownloadButton();
+
 }
 
 
