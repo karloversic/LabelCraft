@@ -122,7 +122,8 @@ function fetchData() {
 
 
 function generateLabelsHTML(inputData) {
-    const nameList = inputData.split(',');
+    const separator = document.querySelector('input[name="separator-option"]:checked').value === 'newline' ? '\n' : ',';
+    const nameList = inputData.split(separator);
     const labelContainer = document.getElementById('labelContainer');
     labelContainer.innerHTML = '';
 
