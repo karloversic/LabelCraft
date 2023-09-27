@@ -3,13 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <!--    <link href="./output.css" rel="stylesheet">-->
-
     <title>LabelCraft</title>
-    <link rel="icon"
-          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏷️</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏷️</text></svg>">
 </head>
 <body class="bg-gray-800 text-white">
 <div id="contentContainer" class="mx-auto p-4">
@@ -21,10 +16,9 @@
         labels from plain text inputs.</p>
 
     <div class="bg-gray-100 p-4 rounded-lg">
-        <p class="block mb-3 text-sm font-medium text-gray-900">Select how would you like to supply the list:</p>
+        <p class="block mb-3 text-sm font-medium text-gray-900">Select how you'd like to supply the list:</p>
 
-
-        <div id="listRadioContainer" class="grid grid-cols-2 gap-3 mb-6 lg:w-2/3">
+        <div id="listRadioContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 lg:w-2/3">
             <div id="writeRadioDiv" class="radio-div flex items-center pl-4 border border-blue-600 rounded bg-gray-200">
                 <input checked id="writeRadio" type="radio" value="write" name="list-option"
                        class="w-4 h-4 text-blue-600 bg-gray-100">
@@ -40,7 +34,7 @@
 
         <p class="block mb-3 text-sm font-medium text-gray-900">Select name separator:</p>
 
-        <div id="separatorRadioContainer" class="grid grid-cols-2 gap-3 mb-6 lg:w-2/3">
+        <div id="separatorRadioContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 lg:w-2/3">
             <div id="newlineRadioDiv" class="radio-div flex items-center pl-4 border border-blue-600 rounded bg-gray-200">
                 <input checked id="newlineRadio" type="radio" value="newline" name="separator-option"
                        class="w-4 h-4 text-blue-600 bg-gray-100">
@@ -57,8 +51,10 @@
             <div id='writeDiv' class="mb-3">
                 <label class="block mb-2 text-sm font-medium text-gray-900" for="writeList">Write names</label>
                 <textarea id="writeList" class="text-black w-full px-3 py-2 border rounded-md" style="height: 170px;"
-                          placeholder="TPM - Trichocereus peruvianus Monstrose">TPM - Trichocereus peruvianus Monstrose, TPQC - Trichocereus peruvianus quasi monstrose, ATG - Andre the Giant
-                </textarea>
+                          placeholder="TPM - Trichocereus peruvianus Monstrose">TPM - Trichocereus peruvianus Monstrose
+TPQC - Trichocereus peruvianus quasi monstrose
+ATG - Andre the Giant
+</textarea>
             </div>
 
             <div id="uploadDiv" class="mb-3" hidden>
@@ -70,7 +66,7 @@
         </div>
 
 
-        <div class="flex space-x-3">
+        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
             <button type="button" id="generateLabels"
                     class="text-white bg-blue-400 cursor-not-allowed rounded-lg mt-4 text-sm px-5 py-2.5 text-center">
                 Generate Labels
@@ -84,13 +80,10 @@
 
         <hr class="h-px my-4 bg-gray-300 border-0">
 
-
-        <div id="labelContainer" class="mt-4 space-x-2 flex"></div>
+        <div id="labelContainer" class="mt-4 space-x-2 flex flex-wrap"></div>
         <div id="pdfViewer" class="mt-4"></div> <!-- Container to display PDF -->
 
     </div>
-
 </div>
-
 </body>
 </html>
