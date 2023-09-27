@@ -3,7 +3,7 @@ import html2pdf from 'html2pdf.js';
 
 
 // On page load
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", () => {
     // "Generate Labels" BUTTON
     document.getElementById('generateLabels').addEventListener('click', generateLabelsHTML);
     // Change radio CSS when input changes
