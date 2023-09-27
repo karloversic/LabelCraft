@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Change button state when input changes
     document.getElementById('writeList').addEventListener('input', changeButtonState);
     document.getElementById('uploadList').addEventListener('input', changeButtonState);
-
 });
 
 
@@ -82,8 +81,6 @@ function changeButtonState() {
         button.disabled = false
         button.classList.remove('cursor-not-allowed', 'bg-blue-400')
         button.classList.add('cursor-pointer', 'bg-blue-600')
-
-
     } else {
         button.disabled = true
         button.classList.remove('cursor-pointer', 'bg-blue-600')
@@ -112,9 +109,7 @@ function generateLabelsHTML() {
             labelContainer.appendChild(label);
         }
     });
-
     unhideDownloadButton();
-
 }
 
 
@@ -125,7 +120,7 @@ function generatePDF() {
     let formattedDate = currentDate.toISOString().slice(0, 10).replace(/-/g, '');
     let filename = `Labels-${formattedDate.substr(0, 4)}-${formattedDate.substr(4, 2)}-${formattedDate.substr(6)}.pdf`;
 
-    let opt = {
+    let options = {
         margin: 0.1,
         filename: filename, // Use the dynamic filename
         image: {type: 'jpeg', quality: 0.98},
@@ -133,8 +128,8 @@ function generatePDF() {
         jsPDF: {unit: 'in', format: 'a4', orientation: 'portrait'}
     };
 
-    // Generate the PDF synchronously
-    html2pdf().set(opt).from(element).save()
+    // Generate the PDF and save it
+    html2pdf().set(options).from(element).save()
         .then(function (pdfData) {
             console.log('PDF generation successful:', pdfData);
         })
