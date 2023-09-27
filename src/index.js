@@ -19,30 +19,59 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 function handleRadioChange(event) {
-    const writeDiv = document.getElementById('writeDiv')
-    const uploadDiv = document.getElementById('uploadDiv')
-    const writeRadioDiv = document.getElementById('writeRadioDiv')
-    const uploadRadioDiv = document.getElementById('uploadRadioDiv')
+    // Input fields
+    const writeDiv = document.getElementById('writeDiv');
+    const uploadDiv = document.getElementById('uploadDiv');
 
-    if (event.target.type === 'radio' && event.target.name === 'list-option' && event.target.value === 'upload') {
-        uploadDiv.hidden = false;
-        uploadRadioDiv.classList.remove('border-gray-300');
-        uploadRadioDiv.classList.add('border-blue-600', 'bg-gray-200');
+    // List supply
+    const writeRadioDiv = document.getElementById('writeRadioDiv');
+    const uploadRadioDiv = document.getElementById('uploadRadioDiv');
 
-        writeDiv.hidden = true;
-        writeRadioDiv.classList.remove('border-blue-600', 'bg-gray-200');
-        writeRadioDiv.classList.add('border-gray-300');
-    } else {
-        writeDiv.hidden = false;
-        writeRadioDiv.classList.remove('border-gray-300');
-        writeRadioDiv.classList.add('border-blue-600', 'bg-gray-200');
+    // Separator select
+    const newlineRadioDiv = document.getElementById('newlineRadioDiv');
+    const commaRadioDiv = document.getElementById('commaRadioDiv');
 
-        uploadDiv.hidden = true;
-        uploadRadioDiv.classList.remove('border-blue-600', 'bg-gray-200');
-        uploadRadioDiv.classList.add('border-gray-300');
+    const eventTargetName = event.target.getAttribute('name');
+
+    if (eventTargetName === 'list-option') {
+        if (event.target.value === 'upload') {
+            uploadDiv.hidden = false;
+            uploadRadioDiv.classList.remove('border-gray-300');
+            uploadRadioDiv.classList.add('border-blue-600', 'bg-gray-200');
+
+            writeDiv.hidden = true;
+            writeRadioDiv.classList.remove('border-blue-600', 'bg-gray-200');
+            writeRadioDiv.classList.add('border-gray-300');
+        } else {
+            writeDiv.hidden = false;
+            writeRadioDiv.classList.remove('border-gray-300');
+            writeRadioDiv.classList.add('border-blue-600', 'bg-gray-200');
+
+            uploadDiv.hidden = true;
+            uploadRadioDiv.classList.remove('border-blue-600', 'bg-gray-200');
+            uploadRadioDiv.classList.add('border-gray-300');
+        }
+    } else if (eventTargetName === 'separator-option') {
+        if (event.target.value === 'newline') {
+            newlineRadioDiv.classList.remove('border-gray-300');
+            newlineRadioDiv.classList.add('border-blue-600', 'bg-gray-200');
+
+            commaRadioDiv.classList.remove('border-blue-600', 'bg-gray-200');
+            commaRadioDiv.classList.add('border-gray-300');
+
+            separator = 'newline';
+        } else {
+            commaRadioDiv.classList.remove('border-gray-300');
+            commaRadioDiv.classList.add('border-blue-600', 'bg-gray-200');
+
+            newlineRadioDiv.classList.remove('border-blue-600', 'bg-gray-200');
+            newlineRadioDiv.classList.add('border-gray-300');
+
+            separator = 'comma';
+        }
     }
-
 }
+
 
 function changeButtonState() {
     const writeInput = document.getElementById('writeList');
