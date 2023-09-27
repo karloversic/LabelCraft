@@ -103,7 +103,7 @@ function generateLabelsHTML() {
     const labelContainer = document.getElementById('labelContainer');
     labelContainer.innerHTML = '';
 
-    nameList.forEach((name, index) => {
+    nameList.forEach((name) => {
         const parts = name.split('-').map(part => part.trim());
         if (parts.length > 0) {
             const label = document.createElement('div');
