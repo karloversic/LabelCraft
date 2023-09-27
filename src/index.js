@@ -55,12 +55,16 @@ function handleRadioChange(event) {
 
             commaRadioDiv.classList.remove('border-blue-600', 'bg-gray-200');
             commaRadioDiv.classList.add('border-gray-300');
+
+            document.getElementById('writeList').setAttribute('placeholder', 'TPM - Trichocereus peruvianus Monstrose\n' + 'TPQC - Trichocereus peruvianus Quasi Cristata');
         } else {
             commaRadioDiv.classList.remove('border-gray-300');
             commaRadioDiv.classList.add('border-blue-600', 'bg-gray-200');
 
             newlineRadioDiv.classList.remove('border-blue-600', 'bg-gray-200');
             newlineRadioDiv.classList.add('border-gray-300');
+
+            document.getElementById('writeList').setAttribute('placeholder', 'TPM - Trichocereus peruvianus Monstrose, TPQC - Trichocereus peruvianus Quasi Cristata');
         }
     }
 }
