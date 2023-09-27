@@ -163,8 +163,6 @@ function generateLabelsHTML(inputData) {
 }
 
 
-
-
 function generatePDF() {
     let element = document.getElementById('labelContainer');
     // Generate a dynamic filename with today's date
