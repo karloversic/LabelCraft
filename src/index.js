@@ -1,6 +1,8 @@
 import './style.css';
 import html2pdf from 'html2pdf.js';
 
+// Separator for the list of names
+let separator = 'newline';
 
 // On page load
 document.addEventListener("DOMContentLoaded", () => {
