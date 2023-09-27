@@ -1,9 +1,6 @@
 import './style.css';
 import html2pdf from 'html2pdf.js';
 
-// Separator for the list of names
-let separator = 'newline';
-
 
 // On page load
 document.addEventListener("DOMContentLoaded", () => {
@@ -58,16 +55,12 @@ function handleRadioChange(event) {
 
             commaRadioDiv.classList.remove('border-blue-600', 'bg-gray-200');
             commaRadioDiv.classList.add('border-gray-300');
-
-            separator = 'newline';
         } else {
             commaRadioDiv.classList.remove('border-gray-300');
             commaRadioDiv.classList.add('border-blue-600', 'bg-gray-200');
 
             newlineRadioDiv.classList.remove('border-blue-600', 'bg-gray-200');
             newlineRadioDiv.classList.add('border-gray-300');
-
-            separator = 'comma';
         }
     }
 }
