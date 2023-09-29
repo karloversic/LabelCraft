@@ -168,7 +168,7 @@ function generatePDF() {
     // Generate a dynamic filename with today's date
     let currentDate = new Date();
     let formattedDate = currentDate.toISOString().slice(0, 10).replace(/-/g, '');
-    let filename = `Labels-${formattedDate.substr(0, 4)}-${formattedDate.substr(4, 2)}-${formattedDate.substr(6)}.pdf`;
+    let filename = `Labels-${formattedDate.slice(0, 4)}-${formattedDate.slice(4, 6)}-${formattedDate.slice(6)}.pdf`;
 
     let options = {
         margin: 0.1,
