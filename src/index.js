@@ -140,6 +140,7 @@ function calculateRowHeight(fontSize) {
 
 
 function generateLabelsHTML(inputData) {
+    const fontSize = '16px';
     const separator = document.querySelector('input[name="separator-option"]:checked').value === 'newline' ? '\n' : ',';
     const nameList = inputData.split(separator);
     const labelContainer = document.getElementById('labelContainer');
