@@ -189,10 +189,10 @@ function generatePDF() {
 
     // Generate the PDF and save it
     html2pdf().set(options).from(element).save()
-        .then(function(pdfData) {
+        .then(function (pdfData) {
             console.log('PDF generation successful:', pdfData);
         })
-        .catch(function(error) {
+        .catch(function (error) {
             console.error('PDF generation error:', error);
         });
 }
