@@ -124,6 +124,20 @@ function fetchData() {
     }
 }
 
+function calculateRowHeight(fontSize) {
+    const tempElement = document.createElement('div');
+    tempElement.style.fontSize = fontSize;
+    tempElement.style.visibility = 'hidden';
+    tempElement.innerText = 'Single line of text';
+
+    document.body.appendChild(tempElement);
+    const oneRowHeight = tempElement.clientHeight;
+
+    document.body.removeChild(tempElement);
+
+    return oneRowHeight;
+}
+
 
 function generateLabelsHTML(inputData) {
     const separator = document.querySelector('input[name="separator-option"]:checked').value === 'newline' ? '\n' : ',';
