@@ -165,13 +165,11 @@ function generateLabelsHTML(inputData) {
             }
 
             let maxWidthFactor = 6;
-            // Set max width based on NAME portion
             label.style.maxWidth = `${maxWidthFactor * name.length}ch`;
             label.style.height = 'fit-content';
 
             labelContainer.appendChild(label);
 
-            // Calculate the number of rows
             const rowHeight = calculateRowHeight(fontSize);
             let numberOfRows = Math.floor(label.clientHeight / rowHeight);
 
