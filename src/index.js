@@ -155,7 +155,14 @@ function generateLabelsHTML(inputData) {
             const label = document.createElement('div');
             label.className = 'label border p-4 rounded-lg text-center text-black';
             label.style.fontSize = fontSize;
-            label.innerHTML = `<span class="font-bold">${name}</span><br>${description}`;
+
+            if (description) {
+                // If description is not empty, display name and description in separate lines
+                label.innerHTML = `<span class="font-bold">${name}</span><br>${description}`;
+            } else {
+                // If description is empty, display only the name bolded in a single line
+                label.innerHTML = `<span class="font-bold">${name}</span>`;
+            }
 
             let maxWidthFactor = 6;
             // Set max width based on NAME portion
