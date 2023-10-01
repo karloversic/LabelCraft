@@ -186,7 +186,7 @@ function generatePDF() {
     let filename = `Labels-${formattedDate.slice(0, 4)}-${formattedDate.slice(4, 6)}-${formattedDate.slice(6)}.pdf`;
 
     let options = {
-        margin:  [-0.06, 0.1],
+        margin:  [-0.16, 0],
         filename: filename, // Use the dynamic filename
         image: {
             type: 'jpeg',
