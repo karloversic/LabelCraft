@@ -114,7 +114,7 @@ function fetchData() {
             const selectedFile = fileInput.files[0];
             const reader = new FileReader();
 
-            reader.onload = function(event) {
+            reader.onload = function (event) {
                 inputData = event.target.result;
                 generateLabelsHTML(inputData);
             };
