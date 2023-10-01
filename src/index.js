@@ -147,29 +147,32 @@ function generateLabelsHTML(inputData) {
     labelContainer.innerHTML = '';
 
     nameList.forEach((name) => {
-        const trimmedName = name.trim(); // Remove leading/trailing whitespace
+        const trimmedName = name.trim();
         if (trimmedName) {
-            const parts = trimmedName.split('-').map(part => part.trim());
-            if (parts.length > 0) {
-                const label = document.createElement('div');
-                label.className = 'label border p-4 rounded-lg text-center text-black';
-                let maxWidthFactor = 6; // Initial max width factor
-                label.style.height = 'fit-content'; // Set height to fit content
+            const name = trimmedName.split('-').map(part => part.trim())[0];
+            const description = trimmedName.split('-').map(part => part.trim())[1];
 
-                // Loop to adjust maxWidth until DESCRIPTION fits within two rows
-                while (maxWidthFactor <= 10) { // Adjust the limit as needed
-                    label.style.maxWidth = `${maxWidthFactor * parts[0].length}ch`;
-                    label.innerHTML = `<span class="font-bold">${parts[0]}</span><br>${parts.slice(1).join('<br>')}`;
+            const label = document.createElement('div');
+            label.className = 'label border p-4 rounded-lg text-center text-black';
+            label.style.fontSize = fontSize;
+            label.innerHTML = `<span class="font-bold">${name}</span><br>${description}`;
 
-                    // Check if the label exceeds two rows
-                    if (label.scrollHeight > 2 * label.clientHeight) {
-                        maxWidthFactor++; // Increase max width factor
-                    } else {
-                        break; // If it fits within two rows, exit the loop
-                    }
-                }
+            let maxWidthFactor = 6;
+            // Set max width based on NAME portion
+            label.style.maxWidth = `${maxWidthFactor * name.length}ch`;
+            label.style.height = 'fit-content';
 
-                labelContainer.appendChild(label);
+            labelContainer.appendChild(label);
+
+            // Calculate the number of rows
+            const rowHeight = calculateRowHeight(fontSize);
+            let numberOfRows = Math.floor(label.clientHeight / rowHeight);
+
+            while (numberOfRows > 4) {
+                maxWidthFactor += 1;
+                label.style.maxWidth = `${maxWidthFactor * name.length}ch`;
+
+                numberOfRows = Math.floor(label.clientHeight / rowHeight);
             }
         }
     });
