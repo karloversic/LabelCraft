@@ -211,10 +211,9 @@ function generateLabelsHTML(inputData) {
 
             const rowHeight = calculateRowHeight(fontSize);
             let numberOfRows = Math.floor(label.clientHeight / rowHeight);
-
             while (numberOfRows > 4) {
                 maxWidthFactor += 1;
-                label.style.maxWidth = `${maxWidthFactor * name.length}ch`;
+                label.style.maxWidth = `${maxWidthFactor * parsedName.length}ch`;
 
                 numberOfRows = Math.floor(label.clientHeight / rowHeight);
             }
