@@ -225,13 +225,13 @@ function generateLabelsHTML(inputData) {
 
 
 function generatePDF() {
-    let element = document.getElementById('labelContainer');
+    const element = document.getElementById('labelContainer');
     // Generate a dynamic filename with today's date
-    let currentDate = new Date();
-    let formattedDate = currentDate.toISOString().slice(0, 10).replace(/-/g, '');
-    let filename = `Labels-${formattedDate.slice(0, 4)}-${formattedDate.slice(4, 6)}-${formattedDate.slice(6)}.pdf`;
+    const currentDate = new Date();
+    const formattedDate = currentDate.toISOString().slice(0, 10).replace(/-/g, '');
+    const filename = `Labels-${formattedDate.slice(0, 4)}-${formattedDate.slice(4, 6)}-${formattedDate.slice(6)}.pdf`;
 
-    let options = {
+    const options = {
         margin: [-0.16, 0],
         filename: filename,
         image: {
