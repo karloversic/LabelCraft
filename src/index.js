@@ -133,30 +133,74 @@ function calculateRowHeight(fontSize) {
     return oneRowHeight;
 }
 
+function sortData(data) {
+    return data.sort((a, b) => {
+        const hasDescriptionA = a.includes('-');
+        const hasDescriptionB = b.includes('-');
+        if (hasDescriptionA && !hasDescriptionB) {
+            return 1;
+        } else if (!hasDescriptionA && hasDescriptionB) {
+            return -1;
+        }
+        return 0;
+    });
+}
+
+
+
+function parseNames(name) {
+    if (!name) return name;
+
+    const words = name.split(' ');
+
+    const parsedWords = words.map(word => {
+        switch (word.toLowerCase()) {
+            case 'trichocereus':
+                return 'T.';
+            case 'lophophorasa':
+                return 'L.';
+            default:
+                return word;
+        }
+    });
+
+    return parsedWords.join(' ');
+}
+
 
 function generateLabelsHTML(inputData) {
     const fontSize = '16px';
     const separator = document.querySelector('input[name="separator-option"]:checked').value === 'newline' ? '\n' : ',';
-    const nameList = inputData.split(separator);
+    const nameList = sortData(inputData.split(separator));
     const labelContainer = document.getElementById('labelContainer');
     labelContainer.innerHTML = '';
+
+    // Check if the parse checkbox is checked
+    const parseCheckbox = document.getElementById('parseNamesCheckbox');
+    const shouldParseNames = parseCheckbox.checked;
 
     nameList.forEach((name) => {
         const trimmedName = name.trim();
         if (trimmedName) {
-            const name = trimmedName.split('-').map(part => part.trim())[0];
-            const description = trimmedName.split('-').map(part => part.trim())[1];
+            let parsedName = trimmedName.split('-').map(part => part.trim())[0];
+            let parsedDescription = trimmedName.split('-').map(part => part.trim())[1];
+
+            // Parse specific names to acronyms if the checkbox is checked
+            if (shouldParseNames) {
+                parsedName = parseNames(parsedName);
+                parsedDescription = parseNames(parsedDescription);
+            }
 
             const label = document.createElement('div');
-            label.className = 'label border p-4 rounded-lg text-center text-black';
+            label.className = 'label border p-4 m-0.5 rounded-lg text-center text-black';
             label.style.fontSize = fontSize;
 
-            if (description) {
+            if (parsedDescription) {
                 // If description is not empty, display name and description in separate lines
-                label.innerHTML = `<span class="font-bold">${name}</span><br>${description}`;
+                label.innerHTML = `<span class="font-bold">${parsedName}</span><br>${parsedDescription}`;
             } else {
                 // If description is empty, display only the name bolded in a single line
-                label.innerHTML = `<span class="font-bold">${name}</span>`;
+                label.innerHTML = `<span class="font-bold">${parsedName}</span>`;
             }
 
             let maxWidthFactor = 6;
