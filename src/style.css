@@ -3,13 +3,3 @@
 @tailwind utilities;
 
 
-@media screen and (min-width: 768px) {
-    #labelContainer {
-        width: 210mm;
-        height: 297mm;
-    }
-
-    #contentContainer {
-        width: 227mm;
-    }
-}
