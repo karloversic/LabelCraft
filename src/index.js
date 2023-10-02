@@ -203,8 +203,8 @@ function generateLabelsHTML(inputData) {
                 label.innerHTML = `<span class="font-bold">${parsedName}</span>`;
             }
 
-            let maxWidthFactor = 6;
-            label.style.maxWidth = `${maxWidthFactor * name.length}ch`;
+            let maxWidthFactor = 3.5;
+            label.style.maxWidth = `${maxWidthFactor * parsedName.length}ch`;
             label.style.height = 'fit-content';
 
             labelContainer.appendChild(label);
