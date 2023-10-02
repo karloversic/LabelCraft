@@ -95,21 +95,16 @@ function unhideDownloadButton() {
 
 
 function fetchData() {
-    // Determine the source of data based on the selected radio button
     const writeRadio = document.getElementById('writeRadio');
     const uploadRadio = document.getElementById('uploadRadio');
 
     let inputData = '';
     if (writeRadio.checked) {
-        // Use data from the textarea
         const textarea = document.getElementById('writeList');
         inputData = textarea.value;
         generateLabelsHTML(inputData);
     } else if (uploadRadio.checked) {
-        // Use data from the file input (you may need to handle file input differently)
         const fileInput = document.getElementById('uploadList');
-        // Assuming you want to read the file content once a file is selected
-
         if (fileInput.files.length > 0) {
             const selectedFile = fileInput.files[0];
             const reader = new FileReader();
@@ -119,7 +114,6 @@ function fetchData() {
                 generateLabelsHTML(inputData);
             };
             reader.readAsText(selectedFile);
-
         }
     }
 }
@@ -194,8 +188,8 @@ function generatePDF() {
     let filename = `Labels-${formattedDate.slice(0, 4)}-${formattedDate.slice(4, 6)}-${formattedDate.slice(6)}.pdf`;
 
     let options = {
-        margin:  [-0.16, 0],
-        filename: filename, // Use the dynamic filename
+        margin: [-0.16, 0],
+        filename: filename,
         image: {
             type: 'jpeg',
             quality: 0.98
