@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body { display: none }
+        body {
+            display: none
+        }
     </style>
     <title>LabelCraft</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏷️</text></svg>">
+    <link rel="icon"
+          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏷️</text></svg>">
 </head>
 <body class="bg-gray-800 text-white">
 <div id="contentContainer" class="mx-auto p-4">
@@ -18,57 +21,77 @@
     <p class="block text-sm font-medium text-gray-400 mb-4">Lightweight web app for effortlessly creating customized
         labels from plain text inputs.</p>
 
-    <div class="bg-gray-100 p-4 rounded-lg">
-        <p class="block mb-3 text-sm font-medium text-gray-900">Select how you'd like to supply the list:</p>
+    <div class="bg-gray-100 p-4 rounded-lg space-y-6">
+        <div class="grid grid-cols-2 lg:grid-cols-3 space-x-4 divide-x">
+            <!--   Options   -->
+            <!--   Parsing options   -->
+            <div class="flex flex-col space-y-4">
+                <!--   Input type select   -->
+                <p class="block text-sm font-medium text-gray-900">Select how you'd like to supply the list:</p>
+                <div id="listRadioContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div id="writeRadioDiv" class="radio-div flex items-center pl-4 border border-blue-600 rounded bg-gray-200">
+                        <input checked id="writeRadio" type="radio" value="write" name="list-option"
+                               class="w-4 h-4 text-blue-600 bg-gray-100">
+                        <label for="writeRadio" class="w-full py-4 ml-2 text-sm font-medium text-gray-900">Write list</label>
+                    </div>
+                    <div id="uploadRadioDiv" class="radio-div flex items-center pl-4 border border-gray-300 rounded">
+                        <input id="uploadRadio" type="radio" value="upload" name="list-option"
+                               class="w-4 h-4 text-blue-600 bg-gray-200">
+                        <label for="uploadRadio" class="w-full py-4 ml-2 text-sm font-medium text-gray-900">Upload
+                            list</label>
+                    </div>
+                </div>
+                <!--   Separator select   -->
+                <p class="block text-sm font-medium text-gray-900">Select name separator:</p>
+                <div id="separatorRadioContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div id="newlineRadioDiv"
+                         class="radio-div flex items-center pl-4 border border-blue-600 rounded bg-gray-200">
+                        <input checked id="newlineRadio" type="radio" value="newline" name="separator-option"
+                               class="w-4 h-4 text-blue-600 bg-gray-100">
+                        <label for="newlineRadio" class="w-full py-4 ml-2 text-sm font-medium text-gray-900">New line</label>
+                    </div>
+                    <div id="commaRadioDiv" class="radio-div flex items-center pl-4 border border-gray-300 rounded">
+                        <input id="commaRadio" type="radio" value="comma" name="separator-option"
+                               class="w-4 h-4 text-blue-600 bg-gray-200">
+                        <label for="commaRadio" class="w-full py-4 ml-2 text-sm font-medium text-gray-900">Comma (,)</label>
+                    </div>
+                </div>
+                <!--   Name shorten select   -->
+                <div class="flex items-start items-center">
+                    <label class="text-sm mr-3 font-medium text-gray-900" for="parseNamesCheckbox">Shorten names:</label>
+                    <input class="bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-4 w-4 rounded" id="parseNamesCheckbox" aria-describedby="parseNamesCheckbox" type="checkbox">
+                </div>
+            </div>
+            <!--   Stylling options   -->
+            <div class="flex flex-col space-y-4">
+                <!--   Color select   -->
+            </div>
 
-        <div id="listRadioContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 lg:w-2/3">
-            <div id="writeRadioDiv" class="radio-div flex items-center pl-4 border border-blue-600 rounded bg-gray-200">
-                <input checked id="writeRadio" type="radio" value="write" name="list-option"
-                       class="w-4 h-4 text-blue-600 bg-gray-100">
-                <label for="writeRadio" class="w-full py-4 ml-2 text-sm font-medium text-gray-900">Write list</label>
-            </div>
-            <div id="uploadRadioDiv" class="radio-div flex items-center pl-4 border border-gray-300 rounded">
-                <input id="uploadRadio" type="radio" value="upload" name="list-option"
-                       class="w-4 h-4 text-blue-600 bg-gray-200">
-                <label for="uploadRadio" class="w-full py-4 ml-2 text-sm font-medium text-gray-900">Upload
-                    list</label>
-            </div>
         </div>
 
-        <p class="block mb-3 text-sm font-medium text-gray-900">Select name separator:</p>
+        <hr class="h-px my-4 bg-gray-300 border-0">
 
-        <div id="separatorRadioContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 lg:w-2/3">
-            <div id="newlineRadioDiv" class="radio-div flex items-center pl-4 border border-blue-600 rounded bg-gray-200">
-                <input checked id="newlineRadio" type="radio" value="newline" name="separator-option"
-                       class="w-4 h-4 text-blue-600 bg-gray-100">
-                <label for="newlineRadio" class="w-full py-4 ml-2 text-sm font-medium text-gray-900">New line</label>
-            </div>
-            <div id="commaRadioDiv" class="radio-div flex items-center pl-4 border border-gray-300 rounded">
-                <input id="commaRadio" type="radio" value="comma" name="separator-option"
-                       class="w-4 h-4 text-blue-600 bg-gray-200">
-                <label for="commaRadio" class="w-full py-4 ml-2 text-sm font-medium text-gray-900">Comma (,)</label>
-            </div>
-        </div>
-
+        <!--   Input   -->
         <div class="input-div">
+            <!--   Manual input   -->
             <div id='writeDiv' class="mb-3">
-                <label class="block mb-2 text-sm font-medium text-gray-900" for="writeList">Write names</label>
+                <label class="block mb-2 text-sm font-medium text-gray-900" for="writeList">Label names input:</label>
                 <textarea id="writeList" class="text-black w-full px-3 py-2 border rounded-md" style="height: 170px;"
                           placeholder="TPM - Trichocereus peruvianus Monstrose">TPM - Trichocereus peruvianus Monstrose
-TPQC - Trichocereus peruvianus quasi monstrose
-ATG - Andre the Giant
+TPQC - Trichocereus peruvianus quasi crested
+ATG - Trichocereus pachanoi "Andre the Giant"
 </textarea>
             </div>
-
+            <!--   File input   -->
             <div id="uploadDiv" class="mb-3" hidden>
-                <label for="uploadList" class="block mb-2 text-sm font-medium text-gray-900">Default file
-                    input example</label>
+                <label for="uploadList" class="block mb-2 text-sm font-medium text-gray-900">File input:</label>
                 <input class="relative m-0 block w-full min-w-0 flex-auto rounded border border-solid border-gray-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal text-gray-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-gray-700 file:px-3 file:py-[0.32rem] file:text-gray-200 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-gray-600 hover:file:text-gray-300 focus:border-primary focus:text-gray-700 focus:shadow-te-primary focus:outline-none"
                        type="file" id="uploadList"/>
             </div>
         </div>
 
 
+        <!--   Buttons   -->
         <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
             <button type="button" id="generateLabels"
                     class="text-white bg-blue-400 cursor-not-allowed rounded-lg text-sm px-5 py-2.5 text-center">
@@ -83,11 +106,9 @@ ATG - Andre the Giant
 
         <hr class="h-px my-4 bg-gray-300 border-0">
 
-        <!--  print preview  -->
-        <div id="labelContainer" class="mt-4 p-2 space-x-1 flex flex-wrap bg-white"></div>
 
-        <div id="pdfViewer" class="mt-4"></div>
-
+        <!--  Labels print preview  -->
+        <div id="labelContainer" class="mt-4 p-2 flex flex-wrap bg-white"></div>
     </div>
 </div>
 </body>
