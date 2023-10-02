@@ -219,3 +219,5 @@ function generatePDF() {
             console.error('PDF generation error:', error);
         });
 }
+
+import "./unhide.css";
