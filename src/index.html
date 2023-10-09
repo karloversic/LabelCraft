@@ -22,13 +22,13 @@
         labels from plain text inputs.</p>
 
     <div class="bg-gray-100 p-4 rounded-lg space-y-6">
-        <div class="grid grid-cols-2 lg:grid-cols-3 space-x-4 divide-x">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 space-x-4 divide-x-0 sm:divide-x">
             <!--   Options   -->
             <!--   Parsing options   -->
             <div class="flex flex-col space-y-4">
                 <!--   Input type select   -->
                 <p class="block text-sm font-medium text-gray-900">Select how you'd like to supply the list:</p>
-                <div id="listRadioContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div id="listRadioContainer" class="grid grid-cols-2 gap-3">
                     <div id="writeRadioDiv" class="radio-div flex items-center pl-4 border border-blue-600 rounded bg-gray-200">
                         <input checked id="writeRadio" type="radio" value="write" name="list-option"
                                class="w-4 h-4 text-blue-600 bg-gray-100">
@@ -43,7 +43,7 @@
                 </div>
                 <!--   Separator select   -->
                 <p class="block text-sm font-medium text-gray-900">Select name separator:</p>
-                <div id="separatorRadioContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div id="separatorRadioContainer" class="grid grid-cols-2 gap-3">
                     <div id="newlineRadioDiv"
                          class="radio-div flex items-center pl-4 border border-blue-600 rounded bg-gray-200">
                         <input checked id="newlineRadio" type="radio" value="newline" name="separator-option"
@@ -62,7 +62,7 @@
                     <input class="bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-4 w-4 rounded" id="parseNamesCheckbox" aria-describedby="parseNamesCheckbox" type="checkbox">
                 </div>
             </div>
-            <!--   Stylling options   -->
+            <!--   Styling options   -->
             <div class="flex flex-col space-y-4">
                 <!--   Color select   -->
             </div>
